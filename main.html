@@ -10,26 +10,54 @@
 	<script src="https://unpkg.com/mithril/mithril.js"></script>
 	<script>
 		var root = document.body
-		// name, purpose, list of apps (with thumbnails)
 		var Splash = {
 		view: function() {
-				return m("a", {href: "#!/mc"}, "Enter!")
+				return m("main", [
+					m("a", {href: "#!/mc"}, "Missile Command"),
+					m("a", {href: "#!/d"}, "Drill game"),
+					m("a", {href: "#!/rc"}, "Raycasting 3D Maze")
+				])
 			}
 		}
 		//app in iframe?
 		var MC = {
 			view: function() {
-				return m("iframe", { id: "missileCommand",
-									 title: "Missile Command",
-									 height: "500",
-									 width: "500",
-									 src: "https://robschroeder333.github.io/missileCommand/"
-								   })
+				return m("iframe", { 
+					id: "missileCommand",
+					title: "Missile Command",
+					height: window.innerHeight,
+					width: window.innerWidth,
+					src: "https://robschroeder333.github.io/missileCommand/"
+				})
+			}
+		}
+		var D = {
+			view: function() {
+				return m("iframe", { 
+					id: "drill",
+					title: "Drill game",
+					height: window.innerHeight,
+					width: window.innerWidth,
+					src: "https://robschroeder333.github.io/drill/"
+				})
+			}
+		}
+		var RC = {
+			view: function() {
+				return m("iframe", { 
+					id: "rayCasting",
+					title: "Raycasting 3D Maze",
+					height: window.innerHeight,
+					width: window.innerWidth,
+					src: "https://vivien-renee.github.io/RayCasting101/"
+				})
 			}
 		}
 		m.route(root, "/splash", {
 			"/splash": Splash,
 			"/mc": MC,
+			"/d": D,
+			"/rc": RC
 		})		
 	</script>
 	
